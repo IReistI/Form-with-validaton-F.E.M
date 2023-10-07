@@ -1,5 +1,6 @@
 const form = document.querySelector("#form");
 const emailInput = document.querySelector("#email");
+const btnModal = document.querySelector("#btnModal");
 let emailDate;
 document.addEventListener("DOMContentLoaded", () => {
     emailInput.addEventListener('blur', verify);
@@ -8,6 +9,7 @@ document.addEventListener("DOMContentLoaded", () => {
         submitForm(emailDate);
         resetForm();
     });
+    btnModal.addEventListener("click", changeModal);
 });
 function verify(e) {
     if(e.target.value.trim() === "") {
@@ -46,10 +48,20 @@ function submitForm(email) {
         createAlert("Required field");
         return;
     }
+    changeModal(email);
     emailDate = '';
-    console.log('se envia el email');
 };
 function resetForm() {
     emailInput.value = '';
     form.reset();
 };  
+function changeModal(email) {
+    const textEmail = document.querySelector(".modal__text span");
+    textEmail.textContent = email; 
+    const modal = document.querySelector("#modal");
+    if(modal.style.display === '' || modal.style.display === 'none') {
+        modal.style.display = 'flex';
+        return;
+    } 
+    return modal.style.display = 'none';
+};
