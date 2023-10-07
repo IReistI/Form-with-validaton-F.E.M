@@ -112,9 +112,18 @@ a {
     gap: 2.5rem;
 }
 .form__label {
+    position: relative;
     font-size: 1.2rem;
     font-weight: 700;
     color: var(--color-darkSlateGrey);
+}
+.form__alert {
+    position: absolute;
+    bottom: 84%;
+    left: 72%;
+    min-width: 11rem;
+    text-align: right;
+    color: var(--color-primary);
 }
 .form__input {
     width: 100%;
